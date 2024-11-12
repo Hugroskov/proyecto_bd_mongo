@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tienda Minorista</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Tienda Minorista</h1>
+        </header>
+
+        <div class="section navigation-buttons">
+            <button class="left-button" onclick="showAdminLogin()"><i class="fas fa-user-shield"></i> Administrador</button>
+            <button class="right-button" onclick="showClient()"><i class="fas fa-shopping-cart"></i> Cliente</button>
+        </div>
+
+
+        <div id="adminLoginSection" class="hidden">
+            <h2>Inicio de Sesión de Administrador</h2>
+            <button onclick="backToMain()"><i class="fas fa-arrow-left"></i> Volver</button>
+            <div class="section">
+                <form id="adminLoginForm">
+                    <input type="text" id="adminUsername" placeholder="Usuario" required>
+                    <input type="password" id="adminPassword" placeholder="Contraseña" required>
+                    <button type="submit"><i class="fas fa-sign-in-alt"></i> Iniciar Sesión</button>
+                </form>
+            </div>
+        </div>
+
+
+        <div id="adminSection" class="hidden">
+            <h2>Zona de Administrador</h2>
+            <button onclick="logoutAdmin()"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</button>
+            <button onclick="backToMain()"><i class="fas fa-arrow-left"></i> Volver</button>
+            <div class="section">
+                <h3 id="productFormTitle">Agregar Producto</h3>
+                <form id="productForm">
+                    <input type="hidden" id="productId">
+                    <input type="text" id="productName" placeholder="Nombre del Producto" required>
+                    <input type="text" id="productDesc" placeholder="Descripción" required>
+                    <input type="number" id="productPrice" placeholder="Precio" step="0.01" required>
+                    <input type="number" id="productStock" placeholder="Cantidad en Stock" required>
+                    <button type="submit"><i class="fas fa-save"></i> Guardar Producto</button>
+                </form>
+            </div>
+
+            <div class="section">
+                <h3>Inventario</h3>
+                <table id="productTable">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Descripción</th>
+                            <th>Precio</th>
+                            <th>Stock</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+ 
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+        <div id="clientSection" class="hidden">
+            <h2>Zona de Cliente</h2>
+            <button onclick="backToMain()"><i class="fas fa-arrow-left"></i> Volver</button>
+ 
+            <div class="section">
+                <h3>Productos Disponibles</h3>
+                <table id="clientProductTable">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Descripción</th>
+                            <th>Precio</th>
+                            <th>Stock</th>
+                            <th>Comprar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
